@@ -2,5 +2,8 @@
   "dependencies": {
     "react": "^16.10.2",
     "react-dom": "^16.10.2"
+  },
+  "scripts": {
+    "build": "rm -r dist && parcel build index.html --public-url ./ && git add -f dist && git commit -m 'build' && git push"
   }
 }
