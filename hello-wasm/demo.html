@@ -1,0 +1,19 @@
+<script type="module">
+  import init, { greet } from './pkg/hello_wasm.js'
+  init().then((wasm) => {
+    console.time('greetWASM')
+    for (let i = 0; i < 20000; ++i) {
+      greet('Test')
+    }
+    console.timeEnd('greetWASM')
+
+    function greetJs(str) {
+      return 'prefix_' + str
+    }
+    console.time('greetJS')
+    for (let i = 0; i < 20000; ++i) {
+      greetJs('Test')
+    }
+    console.timeEnd('greetJS')
+  })
+</script>
